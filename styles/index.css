@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    background-color: #333;
+    background: url('../images/background.jpg') 0 80%/cover;
+    
+}
+#gameContainer{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    
+}
+
+#bird{
+    --bird-size: 60;
+    --bird-velocity: -1000;
+    width: calc(var(--bird-size)*1px);
+    height: calc(var(--bird-size)*1px);
+    
+    position: absolute;
+    left: calc(100vw - 90%);
+    top: calc(var(--bird-velocity)*1px);
+    border-radius: 50%;
+    /* border: 2px solid black; */
+    /* background-color: yellow; */
+    background: url('../images/bird.png') 0 0/contain no-repeat;
+    
+} 
+
+/* Obstacle */
+
+.obstacles{
+    --obstacle-width: 80;
+    width: calc(var(--obstacle-width)*1px);
+    height: 100vh;
+    position: absolute;
+    right: calc(var(--obstacle-width)*-1px); 
+}
+
+.obstacle{
+    width: 100%;
+    position: absolute;
+    background-color: lightgreen;
+}
+
+.obstacle-top{
+    height: calc(var(--obstacle-top-height)*1px);
+    background: url('../images/pipes/bottom-pipe-head.png') no-repeat top/contain, url('../images/pipes/pipe-body.png') 0/contain repeat-y;
+    transform: rotate(180deg);
+}
+
+.obstacle-bottom{
+    bottom: 0;
+    height: calc(100% - (var(--obstacle-top-height) + var(--obstacle-gap))*1px);
+    background: url('../images/pipes/bottom-pipe-head.png') no-repeat top/contain, url('../images/pipes/pipe-body.png') 0/contain repeat-y;
+    /* filter: contrast(0.8); */
+    /* background-position: 10% 10%; */
+    /* background-size: contain; */
+}
+
+
+
+/* text */
+
+.text-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+
+
+/* Score */
+
+.score{
+    font-size: 1.8rem;
+    position: absolute;
+    right: 2.4em;
+    top: 1em;
+    z-index: 1;
+}
+
+/* Hide */
+
+.hide{
+    display: none;
+}
+
+/* gameover */
+
+.game-over-text{
+    text-align: center;
+    position: absolute;
+    font-size: 2.4rem;
+}
